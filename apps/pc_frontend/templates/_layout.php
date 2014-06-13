@@ -34,6 +34,7 @@ var openpne = '.json_encode($jsonData).';
 <div id="Body">
 <?php echo $op_config->get('pc_html_top') ?>
 <div id="Container">
+<?php $module = sfContext::getInstance()->getActionStack()->getLastEntry()->getModuleName() ?>
 <?php $type = sfConfig::get('sf_nav_type', sfConfig::get('mod_'.$module.'_default_nav', 'default')); ?>
 <div id="Header" class="navbar <?php if('friend' == $type): ?>navbar-inverse<?php endif; ?>">
 <div id="HeaderContainer" div class="navbar-inner">
