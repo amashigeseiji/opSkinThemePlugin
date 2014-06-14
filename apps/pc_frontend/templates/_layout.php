@@ -2,33 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 <head>
-<?php include_http_metas() ?>
-<?php include_metas() ?>
-<?php include_title() ?>
-<?php use_stylesheet('/cache/css/customizing.css') ?>
-<?php if (Doctrine::getTable('SnsConfig')->get('customizing_css')): ?>
-<link rel="stylesheet" type="text/css" href="<?php echo url_for('@customizing_css') ?>" />
-<?php endif; ?>
-<?php include_stylesheets() ?>
-<?php
-use_helper('Javascript');
-use_javascript('jquery.min.js');
-use_javascript('jquery.tmpl.min.js');
-?>
-<?php if (opConfig::get('enable_jsonapi') && opToolkit::isSecurePage()): ?>
-<?php
-$jsonData = array(
-  'apiKey' => $sf_user->getMemberApiKey(),
-  'apiBase' => app_url_for('api', 'homepage'),
-);
-
-echo javascript_tag('
-var openpne = '.json_encode($jsonData).';
-');
-?>
-<?php endif ?>
-<?php include_javascripts() ?>
-<?php echo $op_config->get('pc_html_head') ?>
+<?php include_partial('global/html_header', array('sf_user' => $sf_user, 'op_config' => $op_config)) ?>
 </head>
 <body id="<?php printf('page_%s_%s', $view->getModuleName(), $view->getActionName()) ?>" class="<?php echo opToolkit::isSecurePage() ? 'secure_page' : 'insecure_page' ?>">
 <?php echo $op_config->get('pc_html_top2') ?>
