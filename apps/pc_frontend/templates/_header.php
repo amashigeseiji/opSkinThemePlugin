@@ -8,10 +8,9 @@
 
 <?php
 $context = sfContext::getInstance();
-$module = $context->getActionStack()->getLastEntry()->getModuleName();
 $localNavOptions = array(
   'is_secure' => opToolkit::isSecurePage(),
-  'type'      => sfConfig::get('sf_nav_type', sfConfig::get('mod_'.$module.'_default_nav', 'default')),
+  'type'      => getNavType(),
   'culture'   => $context->getUser()->getCulture(),
 );
 if ('default' !== $localNavOptions['type'])
