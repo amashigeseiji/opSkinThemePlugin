@@ -30,7 +30,7 @@
         <div id="ContentsContainer">
 
           <div id="Layout<?php echo $layout ?>" class="Layout">
-            <?php include_partial('global/flash', array('sf_user' => $sf_user, 'sf_data' => $sf_data)) ?>
+            <?php include_partial('global/flash') ?>
 
             <?php if (has_slot('op_top')): ?>
               <div id="Top">
