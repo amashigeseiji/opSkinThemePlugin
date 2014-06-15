@@ -1,11 +1,14 @@
 <?php use_helper('opSkinThemePlugin') ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+
+<?php $is_secure = opToolkit::isSecurePage() ?>
+
 <head>
-  <?php include_partial('global/html_header') ?>
+  <?php include_partial('global/html_header', array('is_secure' => $is_secure)) ?>
   <?php echo $op_config->get('pc_html_head') ?>
 </head>
-<body id="<?php printf('page_%s_%s', $view->getModuleName(), $view->getActionName()) ?>" class="<?php echo opToolkit::isSecurePage() ? 'secure_page' : 'insecure_page' ?>">
+<body id="<?php printf('page_%s_%s', $view->getModuleName(), $view->getActionName()) ?>" class="<?php echo $is_secure ? 'secure_page' : 'insecure_page' ?>">
 
   <?php echo $op_config->get('pc_html_top2') ?>
 
@@ -18,7 +21,7 @@
       <div id="Header" class="navbar <?php if('friend' == getNavType()): ?>navbar-inverse<?php endif; ?>">
         <div id="HeaderContainer" class="navbar-inner">
           <div class="container">
-            <?php include_partial('global/header') ?>
+            <?php include_partial('global/header', array('is_secure' => $is_secure)) ?>
           </div>
         </div><!-- HeaderContainer -->
       </div><!-- Header -->
@@ -65,7 +68,7 @@
 
       <div id="Footer">
         <div id="FooterContainer">
-          <?php include_partial('global/footer') ?>
+          <?php include_partial('global/footer', array('is_secure' => $is_secure)) ?>
         </div><!-- FooterContainer -->
       </div><!-- Footer -->
 

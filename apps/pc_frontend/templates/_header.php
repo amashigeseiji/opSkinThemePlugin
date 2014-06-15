@@ -1,32 +1,32 @@
 <?php echo link_to($op_config['sns_name'], '@homepage', array('class' => 'brand')) ?>
 
+<?php $culture = $sf_user->getCulture() ?>
 
 <ul class="nav" id="localNav">
-  <li id="notificationCenter">
-  <?php include_partial('default/notificationCenter') ?>
-  </li>
+<li id="notificationCenter">
+<?php include_partial('default/notificationCenter') ?>
+</li>
 
 <?php
-$context = sfContext::getInstance();
 $localNavOptions = array(
-  'is_secure' => opToolkit::isSecurePage(),
+  'is_secure' => $is_secure,
   'type'      => getNavType(),
-  'culture'   => $context->getUser()->getCulture(),
+  'culture'   => $culture,
 );
 if ('default' !== $localNavOptions['type'])
 {
-  $localNavOptions['nav_id'] = sfConfig::get('sf_nav_id', $context->getRequest()->getParameter('id'));
+  $localNavOptions['nav_id'] = sfConfig::get('sf_nav_id', $sf_request->getParameter('id'));
 }
 include_component('default', 'localNav', $localNavOptions);
 ?>
-</ul>
+</ul><!-- localNav -->
 
 <div id="globalNav">
-<ul class="nav pull-right" >
+<ul class="nav pull-right">
 <?php
 $globalNavOptions = array(
-  'type'      => opToolkit::isSecurePage() ? 'secure_global' : 'insecure_global',
-  'culture'   => sfContext::getInstance()->getUser()->getCulture(),
+  'type'      => $is_secure ? 'secure_global' : 'insecure_global',
+  'culture'   => $culture,
 );
 include_component('default', 'globalNav', $globalNavOptions);
 ?>
