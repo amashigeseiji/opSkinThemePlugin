@@ -24,4 +24,3 @@ var openpne = '.json_encode($jsonData).';
 ?>
 <?php endif ?>
 <?php include_javascripts() ?>
-<?php echo $op_config->get('pc_html_head') ?>

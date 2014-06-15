@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 <head>
-  <?php include_partial('global/html_header', array('sf_user' => $sf_user, 'op_config' => $op_config)) ?>
+  <?php include_partial('global/html_header') ?>
+  <?php echo $op_config->get('pc_html_head') ?>
 </head>
 <body id="<?php printf('page_%s_%s', $view->getModuleName(), $view->getActionName()) ?>" class="<?php echo opToolkit::isSecurePage() ? 'secure_page' : 'insecure_page' ?>">
 
