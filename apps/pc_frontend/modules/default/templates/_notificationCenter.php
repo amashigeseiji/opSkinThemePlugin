@@ -1,6 +1,4 @@
 <?php if (opConfig::get('enable_jsonapi') && opToolkit::isSecurePage()): ?>
-<?php use_javascript('jquery.notify.js') ?>
-<?php use_javascript('op_notify.js') ?>
 <a class="ncbutton">
   <i class="fa fa-envelope-o"></i>
   <i class="fa fa-users"></i>

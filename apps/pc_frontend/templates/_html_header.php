@@ -12,6 +12,8 @@ use_javascript('jquery.min.js');
 use_javascript('jquery.tmpl.min.js');
 ?>
 <?php if (opConfig::get('enable_jsonapi') && opToolkit::isSecurePage()): ?>
+<?php use_javascript('jquery.notify.js') ?>
+<?php use_javascript('op_notify.js') ?>
 <?php
 $jsonData = array(
   'apiKey' => $sf_user->getMemberApiKey(),
